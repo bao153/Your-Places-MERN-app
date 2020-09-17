@@ -72,7 +72,11 @@ const signup = async (req, res, next) => {
         return next(new HttpError("Signing up failed, please try again.", 500));
     }
 
-    res.status(201).json({ userId: createdUser.id, email: createdUser.email, token: token });
+    res.status(201).json({
+        userId: createdUser.id,
+        email: createdUser.email,
+        token: token
+    });
 };
 
 const login = async (req, res, next) => {
