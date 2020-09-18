@@ -45,9 +45,10 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-    .connect(process.env.DB_URL)
+    // .connect(process.env.DEV_DB_URL)
+    .connect(process.env.PROD_DB_URL)
     .then(() => {
-        app.listen(5000);
+        app.listen(process.env.PORT || 5000);
     })
     .catch((error) => {
         console.log("An error occurred:", error);
